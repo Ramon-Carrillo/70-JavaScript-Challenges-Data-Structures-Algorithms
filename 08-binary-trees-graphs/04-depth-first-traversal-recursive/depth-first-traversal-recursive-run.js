@@ -1,4 +1,7 @@
-const { Node, depthFirstTraversal } = require('./depth-first-traversal');
+const {
+  Node,
+  recDepthFirstTraversal,
+} = require("./depth-first-traversal-recursive");
 
 // Create a binary tree:      a
 //                          /   \
@@ -6,3 +9,17 @@ const { Node, depthFirstTraversal } = require('./depth-first-traversal');
 //                        / \    /
 //                       d   e  f
 
+const a = new Node("a");
+const b = new Node("b");
+const c = new Node("c");
+const d = new Node("d");
+const e = new Node("e");
+const f = new Node("f");
+
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.left = f;
+
+console.log(recDepthFirstTraversal(a)); // ['a', 'b', 'd', 'e', 'c', 'f']
